@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ali Hassnain — Python & AI Developer</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0B0E14; --surface:#11161F; --surface2:#161C27; --line:#232B38;
+    --text:#E8EDF2; --muted:#8B98A9; --blue:#4B8BBE; --blue-bright:#6FB1FF; --yellow:#FFD43B;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0); padding-bottom:env(safe-area-inset-bottom,0);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0);}
+  body{margin:0; background:var(--bg); color:var(--text); font-family:'Inter',sans-serif; line-height:1.6;}
+  ::selection{background:var(--blue); color:#0B0E14;}
+  a{color:inherit;}
+  .wrap{max-width:760px; margin:0 auto; padding:0 24px;}
+
+  header.nav{position:sticky; top:0; top:env(safe-area-inset-top,0); background:rgba(11,14,20,.85); backdrop-filter:blur(8px); border-bottom:1px solid var(--line); z-index:10;}
+  .nav-inner{max-width:760px; margin:0 auto; padding:16px 24px; display:flex; justify-content:space-between; align-items:center;}
+  .brand{font-family:'JetBrains Mono',monospace; font-weight:700; font-size:15px;}
+  .brand span{color:var(--yellow);}
+  .navlinks{display:flex; gap:22px; font-size:14px; color:var(--muted);}
+  .navlinks a{text-decoration:none; transition:color .15s;}
+  .navlinks a:hover{color:var(--blue-bright);}
+  @media(max-width:520px){.navlinks{display:none;}}
+
+  .hero{padding:80px 0 56px;}
+  .prompt-line{font-family:'JetBrains Mono',monospace; color:var(--muted); font-size:14px; margin-bottom:14px;}
+  .prompt-line .caret{display:inline-block; width:8px; height:16px; background:var(--yellow); margin-left:4px; animation:blink 1s steps(1) infinite; vertical-align:-2px;}
+  @keyframes blink{50%{opacity:0;}}
+  h1{font-family:'JetBrains Mono',monospace; font-size:clamp(30px,6vw,44px); line-height:1.15; margin:0 0 18px; font-weight:800;}
+  h1 em{font-style:normal; color:var(--blue-bright);}
+  .hero p{color:var(--muted); max-width:56ch; font-size:16.5px; margin:0 0 28px;}
+  .cta-row{display:flex; gap:12px; flex-wrap:wrap;}
+  .btn{font-family:'JetBrains Mono',monospace; font-size:14px; padding:11px 20px; border-radius:6px; text-decoration:none; display:inline-block; transition:transform .15s, background .15s;}
+  .btn-primary{background:var(--blue); color:#0B0E14; font-weight:700;}
+  .btn-primary:hover{background:var(--blue-bright); transform:translateY(-1px);}
+  .btn-ghost{border:1px solid var(--line); color:var(--text);}
+  .btn-ghost:hover{border-color:var(--blue); color:var(--blue-bright);}
+
+  section{padding:52px 0; border-top:1px solid var(--line);}
+  .label{font-family:'JetBrains Mono',monospace; color:var(--yellow); font-size:13px; margin:0 0 18px;}
+  .about p{color:var(--muted); max-width:62ch; font-size:16px;}
+
+  .skills-grid{display:grid; grid-template-columns:repeat(auto-fit,minmax(150px,1fr)); gap:10px;}
+  .skill{background:var(--surface); border:1px solid var(--line); border-radius:6px; padding:14px 16px;}
+  .skill .name{font-weight:600; font-size:14.5px;}
+  .skill .tag{font-family:'JetBrains Mono',monospace; font-size:12px; color:var(--muted); margin-top:3px;}
+
+  .project{background:var(--surface); border:1px solid var(--line); border-radius:8px; margin-bottom:16px; overflow:hidden;}
+  .project-head{display:flex; align-items:center; gap:8px; padding:10px 16px; background:var(--surface2); border-bottom:1px solid var(--line); font-family:'JetBrains Mono',monospace; font-size:12.5px; color:var(--muted);}
+  .dot{width:9px; height:9px; border-radius:50%; background:var(--line);}
+  .project-body{padding:20px;}
+  .project-body h3{margin:0 0 8px; font-size:17px; font-family:'JetBrains Mono',monospace;}
+  .project-body p{margin:0 0 12px; color:var(--muted); font-size:15px;}
+  .stack{display:flex; gap:8px; flex-wrap:wrap;}
+  .pill{font-family:'JetBrains Mono',monospace; font-size:11.5px; color:var(--blue-bright); background:rgba(75,139,190,.12); border:1px solid rgba(75,139,190,.3); padding:3px 9px; border-radius:100px;}
+
+  .contact p{color:var(--muted); font-size:16px; max-width:52ch;}
+  .contact-links{display:flex; gap:14px; flex-wrap:wrap; margin-top:20px;}
+
+  footer{padding:28px 0 40px; text-align:center; color:var(--muted); font-family:'JetBrains Mono',monospace; font-size:12.5px;}
+
+  @media (prefers-reduced-motion: reduce){ .caret{animation:none;} }
+</style>
+</head>
+<body>
+
+<header class="nav">
+  <div class="nav-inner">
+    <div class="brand">ali<span>@</span>hassnain</div>
+    <nav class="navlinks">
+      <a href="#about">about</a>
+      <a href="#skills">skills</a>
+      <a href="#projects">projects</a>
+      <a href="#contact">contact</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section class="hero">
+    <div class="prompt-line">$ whoami<span class="caret"></span></div>
+    <h1>Ali Hassnain<br>builds <em>AI-powered</em> apps in Python.</h1>
+    <p>I design and ship machine learning products end to end — from data pipelines and model training to APIs and the interfaces people actually use.</p>
+    <div class="cta-row">
+      <a class="btn btn-primary" href="#projects">See my work</a>
+      <a class="btn btn-ghost" href="#contact">Get in touch</a>
+    </div>
+  </section>
+
+  <section id="about">
+    <p class="label">## about</p>
+    <div class="about">
+      <p>I'm a Python developer focused on applied AI — turning research and raw data into tools that solve real problems. I work across the stack: model development, backend APIs, and the small UI details that make a tool feel finished. I care about clean code, fast iteration, and building things that hold up outside a notebook.</p>
+    </div>
+  </section>
+
+  <section id="skills">
+    <p class="label">## skills</p>
+    <div class="skills-grid">
+      <div class="skill"><div class="name">Python</div><div class="tag">core language</div></div>
+      <div class="skill"><div class="name">PyTorch / TensorFlow</div><div class="tag">model training</div></div>
+      <div class="skill"><div class="name">LLM Integration</div><div class="tag">RAG, agents, tool use</div></div>
+      <div class="skill"><div class="name">FastAPI / Flask</div><div class="tag">backend APIs</div></div>
+      <div class="skill"><div class="name">Pandas / NumPy</div><div class="tag">data processing</div></div>
+      <div class="skill"><div class="name">Docker</div><div class="tag">deployment</div></div>
+      <div class="skill"><div class="name">SQL / Vector DBs</div><div class="tag">storage & retrieval</div></div>
+      <div class="skill"><div class="name">Streamlit / React</div><div class="tag">interfaces</div></div>
+    </div>
+  </section>
+
+  <section id="projects">
+    <p class="label">## projects</p>
+
+    <div class="project">
+      <div class="project-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp;&nbsp;doc_qa_assistant.py</div>
+      <div class="project-body">
+        <h3>Document Q&A Assistant</h3>
+        <p>A retrieval-augmented app that lets users upload documents and ask natural-language questions, with cited answers pulled straight from the source text.</p>
+        <div class="stack"><span class="pill">Python</span><span class="pill">LangChain</span><span class="pill">FastAPI</span><span class="pill">Vector DB</span></div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp;&nbsp;vision_classifier.py</div>
+      <div class="project-body">
+        <h3>Image Classification Pipeline</h3>
+        <p>An end-to-end training and inference pipeline for a custom image classifier, packaged behind a simple API for real-time predictions.</p>
+        <div class="stack"><span class="pill">PyTorch</span><span class="pill">Docker</span><span class="pill">FastAPI</span></div>
+      </div>
+    </div>
+
+    <div class="project">
+      <div class="project-head"><span class="dot"></span><span class="dot"></span><span class="dot"></span>&nbsp;&nbsp;chat_agent.py</div>
+      <div class="project-body">
+        <h3>Task-Automation Chat Agent</h3>
+        <p>A conversational agent that plans and executes multi-step tasks using tool-calling, with a lightweight web interface for monitoring runs.</p>
+        <div class="stack"><span class="pill">Python</span><span class="pill">LLM Agents</span><span class="pill">Streamlit</span></div>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact">
+    <p class="label">## contact</p>
+    <div class="contact">
+      <p>Have a project in mind or want to talk about AI and Python? I'd like to hear from you.</p>
+      <div class="contact-links">
+        <a class="btn btn-ghost" href="mailto:ali.hassnain@example.com">Email</a>
+        <a class="btn btn-ghost" href="#">GitHub</a>
+        <a class="btn btn-ghost" href="#">LinkedIn</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer>© 2026 Ali Hassnain — built with Python in mind.</footer>
+
+</body>
+</html>
